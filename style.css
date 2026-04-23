@@ -1,10 +1,23 @@
-/* ===== GLOBAL ===== */
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #f8f9fa;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #2d3748;
+  background-color: #f0fdf4;
+
+  margin: 0;
+  padding: 0;
 }
 
-/* ===== NAVBAR ===== */
+.footer {
+  background: #2d5a27;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+/*Navbar*/
 .navbar-brand {
   font-weight: bold;
   letter-spacing: 1px;
@@ -18,24 +31,7 @@ body {
   color: #d4ffd4 !important;
 }
 
-/* ===== HERO ===== */
-.hero {
-  background: linear-gradient(135deg, #2ecc71, #27ae60);
-  color: white;
-  padding: 80px 20px;
-  text-align: center;
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-
-.hero p {
-  opacity: 0.9;
-}
-
-/* ===== CARD PRODUK ===== */
+/*Card product*/
 .card {
   border: none;
   border-radius: 15px;
@@ -44,10 +40,10 @@ body {
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* ===== BUTTON ===== */
+/*Button*/
 .btn-success {
   background: #2ecc71;
   border: none;
@@ -57,42 +53,26 @@ body {
   background: #27ae60;
 }
 
-/* ===== SECTION ===== */
+/*Section*/
 .section {
   padding: 60px 0;
 }
 
-/* ===== PORTFOLIO ===== */
+/*Portofolio*/
 .card p {
   margin: 0;
   font-weight: 500;
 }
 
-/* ===== LOGIN ===== */
+/*Login*/
 form input {
   border-radius: 8px;
 }
 
-/* ===== CART / CHECKOUT ===== */
+/*Checkout*/
 .list-group-item {
   border-radius: 8px;
   margin-bottom: 5px;
-}
-
-/* ===== FOOTER ===== */
-.footer {
-  background: #2D5A27;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 1.8rem;
-  }
 }
 
 .product-img {
@@ -102,4 +82,3 @@ form input {
   background: #fff;
   padding: 10px;
 }
-

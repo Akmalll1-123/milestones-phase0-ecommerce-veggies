@@ -1,27 +1,17 @@
-// =======================
-// 🔥 AMBIL CART
-// =======================
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// =======================
-// 🔥 ONGKIR
-// =======================
+// Ongkir
 const ongkirData = {
   BogorKab: 10000,
   BogorKot: 15000,
-  Depok: 20000 // FIX huruf besar
+  Depok: 20000
 };
 
-// =======================
-// 🔥 FORMAT RUPIAH
-// =======================
+// Agar penulisan Rp ada "." dan ",-"
 function formatRupiah(angka) {
   return Number(angka).toLocaleString("id-ID")+",-";
 }
 
-// =======================
-// 🔥 ELEMENT
-// =======================
 const cartList = document.getElementById("cart-list");
 const subtotalEl = document.getElementById("subtotal");
 const ongkirEl = document.getElementById("ongkir");
@@ -32,9 +22,7 @@ const promoInfo = document.getElementById("promo-info");
 const productList = document.getElementById("product-list");
 const cartCount = document.getElementById("cart-count");
 
-// =======================
-// 🔥 RENDER CART
-// =======================
+// Render cart
 function renderCart() {
   if (!cartList) return;
 
@@ -59,9 +47,7 @@ function renderCart() {
   hitungTotal();
 }
 
-// =======================
-// 🔥 HITUNG TOTAL + PROMO
-// =======================
+// Logika jumlah total
 function hitungTotal() {
   const kota = kotaSelect.value;
   let ongkir = ongkirData[kota] || 0;
@@ -90,16 +76,12 @@ function hitungTotal() {
   totalEl.textContent = formatRupiah(subtotal + ongkir);
 }
 
-// =======================
-// 🔥 EVENT KOTA
-// =======================
+// Select kota
 if (kotaSelect) {
   kotaSelect.addEventListener("change", hitungTotal);
 }
 
-// =======================
-// 🔥 CHECKOUT WA
-// =======================
+// Prsanan Redirect ke WA
 function checkoutWA() {
   if (cart.length === 0) {
     alert("Keranjang kosong!");
@@ -147,26 +129,20 @@ function checkoutWA() {
   localStorage.removeItem("cart");
 }
 
-// =======================
-// 🔥 DATA PRODUK
-// =======================
+// Data Product
 const products = [
   { id: 1, name: "Tomat Segar", price: 10000, image: "images/tomat.jpg" },
   { id: 2, name: "Wortel Organik", price: 8000, image: "images/wortel.jpg" },
   { id: 3, name: "Bayam Hijau", price: 5000, image: "images/bayam.jpg" }
 ];
 
-// =======================
-// 🔥 GET QTY
-// =======================
+// Get Quantity
 function getQty(id) {
   const item = cart.find(i => i.id === id);
   return item ? item.qty : 0;
 }
 
-// =======================
-// 🔥 TAMBAH PRODUK
-// =======================
+// Tambah product
 function increase(id) {
   const product = products.find(p => p.id === id);
   const item = cart.find(i => i.id === id);
@@ -180,9 +156,7 @@ function increase(id) {
   saveAndRender();
 }
 
-// =======================
-// 🔥 KURANG PRODUK
-// =======================
+// Kurang product
 function decrease(id) {
   const item = cart.find(i => i.id === id);
   if (!item) return;
@@ -196,9 +170,7 @@ function decrease(id) {
   saveAndRender();
 }
 
-// =======================
-// 🔥 SIMPAN + REFRESH
-// =======================
+// Simpan dan Refresh
 function saveAndRender() {
   localStorage.setItem("cart", JSON.stringify(cart));
 
@@ -207,9 +179,7 @@ function saveAndRender() {
   updateCartCount();
 }
 
-// =======================
-// 🔥 RENDER PRODUK
-// =======================
+// Render produk
 function renderProducts() {
   if (!productList) return;
 
@@ -236,9 +206,7 @@ function renderProducts() {
   });
 }
 
-// =======================
-// 🔥 UPDATE CART ICON
-// =======================
+// Update Item yang di cart
 function updateCartCount() {
   if (!cartCount) return;
 
@@ -246,9 +214,7 @@ function updateCartCount() {
   cartCount.textContent = total;
 }
 
-// =======================
-// 🔥 INIT
-// =======================
+// Init
 document.addEventListener("DOMContentLoaded", () => {
   cart = JSON.parse(localStorage.getItem("cart")) || [];
 
