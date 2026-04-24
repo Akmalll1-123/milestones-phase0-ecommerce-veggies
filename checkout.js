@@ -4,12 +4,12 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 const ongkirData = {
   BogorKab: 10000,
   BogorKot: 15000,
-  Depok: 20000
+  Depok: 20000,
 };
 
 // Agar penulisan Rp ada "." dan ",-"
 function formatRupiah(angka) {
-  return Number(angka).toLocaleString("id-ID")+",-";
+  return Number(angka).toLocaleString("id-ID") + ",-";
 }
 
 const cartList = document.getElementById("cart-list");
@@ -29,7 +29,7 @@ function renderCart() {
   cartList.innerHTML = "";
   let subtotal = 0;
 
-  cart.forEach(item => {
+  cart.forEach((item) => {
     const totalItem = item.price * item.qty;
     subtotal += totalItem;
 
@@ -100,7 +100,7 @@ function checkoutWA() {
   let pesan = `Halo MamangFresh, saya ingin order:\n\n`;
   let subtotal = 0;
 
-  cart.forEach(item => {
+  cart.forEach((item) => {
     const totalItem = item.price * item.qty;
     subtotal += totalItem;
 
@@ -133,19 +133,19 @@ function checkoutWA() {
 const products = [
   { id: 1, name: "Tomat Segar", price: 10000, image: "images/tomat.jpg" },
   { id: 2, name: "Wortel Organik", price: 8000, image: "images/wortel.jpg" },
-  { id: 3, name: "Bayam Hijau", price: 5000, image: "images/bayam.jpg" }
+  { id: 3, name: "Bayam Hijau", price: 5000, image: "images/bayam.jpg" },
 ];
 
 // Get Quantity
 function getQty(id) {
-  const item = cart.find(i => i.id === id);
+  const item = cart.find((i) => i.id === id);
   return item ? item.qty : 0;
 }
 
 // Tambah product
 function increase(id) {
-  const product = products.find(p => p.id === id);
-  const item = cart.find(i => i.id === id);
+  const product = products.find((p) => p.id === id);
+  const item = cart.find((i) => i.id === id);
 
   if (item) {
     item.qty++;
@@ -158,13 +158,13 @@ function increase(id) {
 
 // Kurang product
 function decrease(id) {
-  const item = cart.find(i => i.id === id);
+  const item = cart.find((i) => i.id === id);
   if (!item) return;
 
   item.qty--;
 
   if (item.qty <= 0) {
-    cart = cart.filter(i => i.id !== id);
+    cart = cart.filter((i) => i.id !== id);
   }
 
   saveAndRender();
@@ -185,7 +185,7 @@ function renderProducts() {
 
   productList.innerHTML = "";
 
-  products.forEach(p => {
+  products.forEach((p) => {
     const qty = getQty(p.id);
 
     productList.innerHTML += `
